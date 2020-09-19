@@ -16,3 +16,6 @@ rmmod:
 
 mount:
 	mkdir -p $(PWD)/mnt && sudo mount -t logfwdfs none $(PWD)/mnt
+
+umount:
+	sudo umount $(PWD)/mnt

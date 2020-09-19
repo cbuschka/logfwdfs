@@ -8,5 +8,11 @@ all:
 clean:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
 
-run:	all
-	sync && sudo insmod logfwdfs.ko && sudo rmmod logfwdfs.ko  && dmesg
+insmod:	all
+	sync && sudo insmod logfwdfs.ko
+
+rmmod:
+	sudo rmmod logfwdfs.ko
+
+mount:
+	mkdir -p $(PWD)/mnt && sudo mount -t logfwdfs none $(PWD)/mnt
